@@ -1,23 +1,818 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <title>Home</title>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width" />
-    <!--
-      Need a visual blank slate?
-      Remove all code in `styles.css`!
-    -->
-    <link rel="stylesheet" href="styles.css" />
-    <script type="module" src="script.js"></script>
-  </head>
-  <body>
-    <nav>
-      <a href="/" aria-current="page">Home</a>
-      <a href="/page2.html">Other page</a>
-    </nav>
+
+   
+    <!-- Schema.org Structured Data for SEO Snippet Enhancement -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Product",
+      "name": "초등학생인강 종합 비교 분석 서비스",
+      "image": "https://edu.reliabledone.com/images/elementary-main.jpg",
+      "description": "2026학년도 최신 초등학생인강 브랜드별 요금 비교, 자녀 학년별 맞춤형 프로그램 추천 및 사은품, 상품권, 현금지원 등 다양한 혜택 정보 제공",
+      "brand": {
+        "@type": "Brand",
+        "name": "초등인강 스마트센터"
+      },
+      "offers": {
+        "@type": "AggregateOffer",
+        "lowPrice": "99000",
+        "highPrice": "159000",
+        "priceCurrency": "KRW",
+        "offerCount": "10",
+        "offers": [
+          {
+            "@type": "Offer",
+            "name": "스마트 홈러닝 베이직 패키지",
+            "price": "99000",
+            "priceCurrency": "KRW",
+            "url": "https://edu.reliabledone.com"
+          },
+          {
+            "@type": "Offer",
+            "name": "AI 몰입형 종합 인강 패키지",
+            "price": "139000",
+            "priceCurrency": "KRW",
+            "url": "https://edu.reliabledone.com"
+          }
+        ]
+      }
+    }
+    </script>
+
+    <style>
+      /* Google Fonts (Noto Sans KR) for clear readability */
+      @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+
+      :root {
+        --primary-color: #2E4057; /* Deep Indigo */
+        --secondary-color: #4F9D9D; /* Soft Mint */
+        --accent-color: #E07A5F; /* Peach Terracotta */
+        --bg-color: #F8F9FA; /* Off-White Gray */
+        --text-color: #2D3142; /* Slate dark gray */
+        --border-color: #D3D5D7;
+        --light-accent: #F4F1DE; /* Light Warm Beige */
+      }
+
+      body {
+        font-family: "Noto Sans KR", sans-serif;
+        margin: 0;
+        padding: 0;
+        line-height: 1.9;
+        background-color: var(--bg-color);
+        color: var(--text-color);
+      }
+
+      header {
+        background-color: var(--primary-color);
+        color: white;
+        padding: 2.5rem 1rem;
+        text-align: center;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      }
+
+      header h1 {
+        font-size: 2.3rem;
+        margin-bottom: 0.8rem;
+        font-weight: 700;
+        letter-spacing: -0.5px;
+      }
+
+      header p {
+        font-size: 1.15rem;
+        opacity: 0.95;
+        max-width: 800px;
+        margin: 0 auto 1.5rem auto;
+        font-weight: 300;
+      }
+
+      nav {
+        margin-top: 1.5rem;
+      }
+
+      nav ul {
+        list-style: none;
+        padding: 0;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        margin: 0;
+      }
+
+      nav a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        font-size: 0.95rem;
+        transition: color 0.3s ease, border-bottom 0.3s ease;
+        padding: 0.3rem 0;
+        border-bottom: 2px solid transparent;
+      }
+
+      nav a:hover {
+        color: var(--light-accent);
+        border-bottom: 2px solid var(--light-accent);
+      }
+
+      main {
+        max-width: 1050px;
+        margin: 2.5rem auto;
+        padding: 2rem;
+        background-color: white;
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.03);
+        border-radius: 16px;
+      }
+
+      section {
+        padding: 2.5rem 0;
+        border-bottom: 1px solid #ECEFF1;
+      }
+
+      section:last-of-type {
+        border-bottom: none;
+      }
+
+      h2 {
+        color: var(--primary-color);
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-top: 0;
+        margin-bottom: 1.5rem;
+        padding-bottom: 0.6rem;
+        border-bottom: 3px solid var(--secondary-color);
+        display: inline-block;
+      }
+
+      h3 {
+        font-size: 1.4rem;
+        margin-top: 2rem;
+        margin-bottom: 1rem;
+        color: var(--secondary-color);
+        font-weight: 700;
+      }
+
+      p {
+        margin-bottom: 1.6rem;
+        font-size: 1.05rem;
+        color: #4A4E69;
+        text-align: justify;
+      }
+
+      ul, ol {
+        margin-bottom: 1.8rem;
+        padding-left: 1.5rem;
+      }
+
+      ul li, ol li {
+        margin-bottom: 0.9rem;
+        font-size: 1.02rem;
+        color: #4A4E69;
+      }
+
+      .keyword-tags {
+        margin: 2rem 0;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .keyword-tags a {
+        background-color: var(--light-accent);
+        color: var(--primary-color);
+        padding: 8px 18px;
+        border-radius: 30px;
+        font-size: 0.88rem;
+        font-weight: 500;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: 1px solid #E5E0C8;
+      }
+
+      .keyword-tags a:hover {
+        background-color: var(--secondary-color);
+        color: white;
+        border-color: var(--secondary-color);
+      }
+
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin: 2rem 0;
+        background-color: #FCFDFD;
+        border-radius: 10px;
+        overflow: hidden;
+        border: 1px solid var(--border-color);
+      }
+
+      th, td {
+        padding: 1.1rem;
+        text-align: center;
+        font-size: 0.98rem;
+        border: 1px solid var(--border-color);
+      }
+
+      th {
+        background-color: var(--primary-color);
+        color: white;
+        font-weight: 700;
+      }
+
+      tr:nth-child(even) {
+        background-color: #F8F9FA;
+      }
+
+      .highlight {
+        font-weight: 700;
+        color: var(--accent-color);
+      }
+
+      .card-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+        margin: 2rem 0;
+      }
+
+      .card {
+        background-color: #FCFDFD;
+        border: 1px solid var(--border-color);
+        border-radius: 12px;
+        padding: 1.8rem;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+      }
+
+      .card h4 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.25rem;
+        border-bottom: 2px solid var(--light-accent);
+        padding-bottom: 0.5rem;
+      }
+
+      .interactive-box {
+        background-color: var(--light-accent);
+        padding: 2rem;
+        border-radius: 14px;
+        margin: 2.5rem 0;
+        border: 1px solid #E5E0C8;
+      }
+
+      .interactive-box h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+      }
+
+      .contact-form {
+        margin-top: 3rem;
+        background-color: #EFF6F6;
+        padding: 2.5rem;
+        border-radius: 16px;
+        border: 1px solid #D1E5E5;
+      }
+
+      .contact-form h3 {
+        margin-top: 0;
+        color: var(--primary-color);
+        font-size: 1.6rem;
+        border-bottom: 2px solid var(--secondary-color);
+        padding-bottom: 0.5rem;
+      }
+
+      .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 1.5rem;
+        margin-bottom: 1.5rem;
+      }
+
+      @media (max-width: 768px) {
+        .form-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      .form-group {
+        display: flex;
+        flex-direction: column;
+      }
+
+      .form-group label {
+        font-weight: 600;
+        margin-bottom: 0.5rem;
+        color: var(--primary-color);
+      }
+
+      .form-group input,
+      .form-group select,
+      .form-group textarea {
+        padding: 12px;
+        border: 1px solid var(--border-color);
+        border-radius: 8px;
+        font-size: 1rem;
+        background-color: white;
+        color: var(--text-color);
+        transition: border-color 0.3s ease;
+      }
+
+      .form-group input:focus,
+      .form-group select:focus,
+      .form-group textarea:focus {
+        border-color: var(--secondary-color);
+        outline: none;
+      }
+
+      .btn-submit {
+        background-color: var(--accent-color);
+        color: white;
+        font-weight: 700;
+        padding: 1.2rem;
+        border: none;
+        border-radius: 8px;
+        font-size: 1.15rem;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+        width: 100%;
+        margin-top: 1rem;
+      }
+
+      .btn-submit:hover {
+        background-color: #D0694E;
+        transform: translateY(-2px);
+      }
+
+      .accordion dt {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-top: 1.2rem;
+        cursor: pointer;
+        color: var(--primary-color);
+        padding: 1.2rem;
+        background-color: #F1F3F5;
+        border-radius: 8px;
+        transition: background-color 0.3s ease;
+      }
+
+      .accordion dt:hover {
+        background-color: #E9ECEF;
+      }
+
+      .accordion dd {
+        margin-left: 0;
+        padding: 1.2rem;
+        margin-bottom: 1.2rem;
+        display: none;
+        background-color: white;
+        border-left: 4px solid var(--secondary-color);
+        border-bottom: 1px solid #ECEFF1;
+        border-right: 1px solid #ECEFF1;
+        border-radius: 0 0 8px 8px;
+      }
+
+      .accordion dt.active + dd {
+        display: block;
+      }
+
+      .calculator-result {
+        margin-top: 1.5rem;
+        padding: 1.2rem;
+        background-color: white;
+        border-radius: 8px;
+        border: 1px dashed var(--secondary-color);
+        font-weight: 600;
+        color: var(--primary-color);
+      }
+
+      footer {
+        text-align: center;
+        padding: 3rem 1rem;
+        font-size: 0.9rem;
+        color: #777;
+        background-color: var(--primary-color);
+        color: #ECEFF1;
+        margin-top: 4rem;
+      }
+
+      footer a {
+        color: var(--secondary-color);
+        text-decoration: none;
+      }
+
+      footer a:hover {
+        text-decoration: underline;
+      }
+
+      .outbound-links {
+        margin-top: 1.5rem;
+        font-size: 0.85rem;
+      }
+
+      .outbound-links a {
+        margin: 0 10px;
+        color: var(--light-accent);
+      }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>2026학년도 초등학생인강 비교 추천 및 자녀 교육 컨설팅</h1>
+        <p>현명한 학부모의 자녀 교육 설계, 최신 스마트 교육 트렌드와 비용 혜택을 상세히 분석해 드립니다.</p>
+        <nav>
+            <ul>
+                <li><a href="#intro-section">초등인강 필요성</a></li>
+                <li><a href="#brand-section">브랜드 비교분석</a></li>
+                <li><a href="#cost-section">요금 및 비용 가이드</a></li>
+                <li><a href="#calculator-section">예상 금액 계산기</a></li>
+                <li><a href="#regional-section">지역별 교육 열기</a></li>
+                <li><a href="#consulting-section">무료 혜택 상담 신청</a></li>
+                <li><a href="#faq-section">자주 묻는 질문</a></li>
+            </ul>
+        </nav>
+    </header>
+
     <main>
-      <h1>Home page</h1>
+        <!-- Intro Section -->
+        <section id="intro-section">
+            <h2>초등학생인강, 2026년 대격변의 시대를 맞이하다</h2>
+            <p>급격하게 진화하는 교육 환경 속에서 2026학년도 초등 자녀 교육의 중심축은 스마트 홈러닝 및 비대면 온라인 시스템으로 완벽히 이동하였습니다. 많은 학부모님들께서 서울, 경기 등 수도권 학원가뿐만 아니라 부산, 인천, 대구, 대전, 광주, 울산, 세종 등 전국 주요 도시에서 가장 효율적이고 비용 대비 성과가 우수한 학습 도구로 인터넷 원격 학습 모델을 적극적으로 활용하고 계십니다.</p>
+            <p>과거의 일방향적인 단순 동영상 시청 수준을 넘어, 최근의 플랫폼들은 네이버, 구글, 유튜브 등에서 화제가 되고 있는 인공지능 즉 AI 맞춤 기술을 전격 도입하였습니다. 특히 챗지피티 기술과 제미나이 언어 모델을 결합하여 개인별 일대일 피드백을 제공하는 등 학습 관리가 고도화되었습니다. 이에 따라 자녀에게 가장 알맞은 가입 프로그램 종류와 신뢰할 수 있는 전용 학업 기기를 어떤 기준으로 선별해야 할지 깊은 고민에 직면해 계실 것입니다.</p>
+            <p>다양한 유통 채널과 마케팅 플랫폼인 인스타그램, 페이스북, 트위터, 카카오톡, 텔레그램을 통해 쏟아지는 수많은 정보를 접하고 계실 텐데, 본 가이드에서는 학부모 중심의 편파 없는 객관적 시선으로 각 기업의 장단점 및 등급별 순위를 체계적으로 분석하여 최적의 대안을 찾으실 수 있도록 돕겠습니다.</p>
+
+            <div class="keyword-tags" aria-label="연관 핵심 검색어">
+                <a href="#brand-section">초등학생인강 추천</a>
+                <a href="#cost-section">초등인강 요금 분석</a>
+                <a href="#calculator-section">스마트 학습 계산기</a>
+                <a href="#consulting-section">신규 가입 사은품</a>
+                <a href="#faq-section">내돈내산 솔직후기</a>
+                <a href="#regional-section">전국 지역별 학구열</a>
+            </div>
+        </section>
+
+        <!-- Brand Analysis Section -->
+        <section id="brand-section">
+            <h2>국내 주요 대표 브랜드 집중 분석 및 장단점 비교</h2>
+            <p>스마트 패드 기반의 자율 학습 방식은 시장 점유율에 따라 크게 밀크티, 엘리하이, 아이스크림 홈런, 온리원 등으로 구분됩니다. 이 브랜드들은 전용 태블릿 기기를 임대 또는 구매하여 가정에서 스스로 학습하도록 돕는 체계를 갖추고 있습니다. 네이버 카페나 맘카페뿐 아니라 디시인사이드, 보배드림, 펨코, 에펨코리아 등 커뮤니티 전반에서 매년 열띤 토론이 진행되는 핵심 차이점을 세밀하게 요약해 드리겠습니다.</p>
+            
+            <div class="card-grid">
+                <div class="card">
+                    <h4>천재교육 밀크T (MilkT)</h4>
+                    <p>교과서 점유율 1위 기업인 천재교육의 방대한 빅데이터 인프라를 적극 활용하는 전문 프로그램입니다. 교과서 연계율이 대단히 높다는 뚜렷한 장점이 있어 학교 내신 성적을 든든하게 다지는 데 적격입니다. 다만 일각에서는 게임이나 미디어 요소가 다소 포함되어 자기통제력이 다소 미흡한 저학년 시기에는 초기에 부모님의 지속적인 관찰이 필요하다는 단점이 지적되기도 합니다.</p>
+                </div>
+                <div class="card">
+                    <h4>메가스터디 엘리하이 (Elihigh)</h4>
+                    <p>중고등 인강 시장의 절대 강자인 메가스터디가 런칭한 초등 대상의 대표적인 프리미엄 전문 브랜드입니다. 유명 강사진의 심도 깊은 오프라인식 판서 강의를 그대로 제공하여 고학년 수학 및 영어 심화 과정, 영재원 대비 등 상위권 도약을 꿈꾸는 학생들에게 가장 강력한 선호도를 이끌어냅니다. 반면 기초 학습이 부족하거나 스스로 오랜 시간 칠판을 응시하기 힘든 하위권 아이들에게는 자칫 수업의 흥미가 떨어질 수 있다는 단점이 상존합니다.</p>
+                </div>
+                <div class="card">
+                    <h4>아이스크림 홈런 (Home-Run)</h4>
+                    <p>전국 초등학교 교실에서 교사들이 활용하는 풍부한 교육 콘텐츠를 독점 제공하는 아이스크림 미디어의 홈러닝입니다. 학교 현장에서의 친밀한 시각 자료들을 활용하므로 아이가 기기에 거부감 없이 쉽게 다가갈 수 있으며, 최근 업그레이드된 독창적 디자인의 하드웨어가 직관적 학습 습관을 유도합니다. 다만 깊이감 있는 수능 대비 연계형 하이레벨 수학 문제를 원하는 최상위권 학생들에게는 비교적 평이한 커리큘럼이라는 피드백도 존재합니다.</p>
+                </div>
+                <div class="card">
+                    <h4>웅진씽크빅 온리원 (OnlyOne)</h4>
+                    <p>웅진의 오랜 독서 지도 비법과 메타인지 학습법을 접목시킨 차별화된 형태의 메타버스 스마트 시스템입니다. 스스로 아는 부분과 모르는 부분을 적극 자각할 수 있도록 심리적 진단을 지원하여 능동적 습관 형성에 도움을 줍니다. 종이 교재와 조화를 이루는 커리큘럼도 장점으로 꼽히지만, 타 브랜드 대비 전용 화면의 자극적인 요소가 다소 정돈되어 지루함을 느끼는 학생도 간혹 나타납니다.</p>
+                </div>
+            </div>
+
+            <p>이러한 플랫폼들은 각각 독창적인 개성과 장단점을 명확히 지니고 있기에, 단순히 네이버 및 구글의 최상단 순위표만 참고하여 무조건적으로 타인의 내돈내산 성공담에만 의존해 덜컥 가입하는 것은 대단히 위험합니다. 자녀의 실제 성향이 놀이형 자율 학습에 맞는지, 정밀한 강사 지도의 교습형에 더 강점을 보이는지 상담 및 직접 체험을 통하여 냉정히 검증하는 작업이 제일 먼저 수행되어야 합니다.</p>
+        </section>
+
+        <!-- Cost & Benefits Section -->
+        <section id="cost-section">
+            <h2>초등학생인강 평균 비용 및 지원 혜택 집중 분석</h2>
+            <p>많은 학부모님들께서 학습지 선택에 앞서 가장 예민하게 고민하시는 부분이 바로 월 지출 요금, 즉 가입 비용과 신규 가입 혜택에 따른 실제 예상 금액일 것입니다. 현재 통용되는 대부분의 대기업 온라인 강좌 시스템은 가입 계약 유지 기간을 기본 12개월 또는 24개월로 연동하여 월납 형식으로 수납하고 있습니다. 각 약정별 평균 예상 금액과 대략적인 혜택 구조는 다음과 같습니다.</p>
+
+            <table>
+                <thead>
+                    <tr>
+                        <th>가입 약정 형태</th>
+                        <th>월 평균 납입금액</th>
+                        <th>포함 내역 및 전용 기기 대여 조건</th>
+                        <th>제공 혜택 및 사은품 구조</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>12개월 약정 (단기)</td>
+                        <td>139,000원 ~ 159,000원</td>
+                        <td>스마트 전용 패드 단말기 임대료 및 전과목 전수강 포함</td>
+                        <td>네이버페이 포인트 상품권 또는 온라인 문상 지급</td>
+                    </tr>
+                    <tr>
+                        <td>24개월 약정 (표준)</td>
+                        <td>99,000원 ~ 119,000원</td>
+                        <td>전용 단말기 소유권 완전 이전 및 정기 학습 도서 배송</td>
+                        <td>카드 청구할인 및 제휴 상품권, 추가 현금지원 프로모션 적용</td>
+                    </tr>
+                    <tr>
+                        <td>형제 결합 (다자녀)</td>
+                        <td>추가 기기당 30% ~ 40% 할인</td>
+                        <td>추가 패드 기기 무상 제공 또는 반납형 렌탈 할인</td>
+                        <td>가족 단위 백화점 상품권 증정 및 풍성한 시즌 이벤트 연동</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <p>보편적으로 24개월 약정을 체결하여 진행하는 것이 월 지출 단가를 가장 낮추는 효과적인 길입니다. 하지만 약정 도중 자녀의 학업 소홀 혹은 거부 현상으로 계약 해지 시, 남은 기간에 비례한 높은 위약금 및 기기 잔여 할부금이 발생하므로 최초 계약 시 신중하게 주치의 같은 카운셀러와의 컨설팅을 진행하셔야 뒤늦은 후회가 없습니다.</p>
+            <p>일부 온라인 전문 대행 업체나 특판 영업 채널에서는 신규 가입 시 일정 수준의 현금지원 또는 모바일 주유 상품권, 토스나 카카오톡 등 핀테크 플랫폼 연동 즉시 페이백 지원금을 파격적으로 제시하는 혜택 경쟁을 하기도 합니다. 이러한 혜택들은 시기별로 상이하므로 실시간 고객센터 문의를 통해 가장 싼곳과 저렴한곳의 혜택 세부 조건을 빠짐없이 대조해 보실 것을 적극적으로 추천합니다.</p>
+        </section>
+
+        <!-- Dynamic Cost Calculator Widget (Dwell-time Booster) -->
+        <section id="calculator-section">
+            <h2>자율 스마트학습 예상 금액 자가 진단 계산기</h2>
+            <p>자녀의 예상 학년과 선호하는 맞춤 프로그램 기간, 결합 가입 여부를 선택하시면 월별 실질 비용 및 예상 누적 금액을 실시간으로 계산해 드립니다. 다양한 프로모션 할인 요소까지 대입하여 미리 경제적 흐름을 시뮬레이션해 보세요.</p>
+            
+            <div class="interactive-box">
+                <form id="calc-form" onsubmit="return false;">
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="calc_grade">아이 학년 구분</label>
+                            <select id="calc_grade" onchange="calculateCost()">
+                                <option value="low">저학년 (1학년 ~ 3학년)</option>
+                                <option value="high">고학년 (4학년 ~ 6학년)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calc_period">약정 체결 개월수</label>
+                            <select id="calc_period" onchange="calculateCost()">
+                                <option value="24">24개월 약정 (강력 추천)</option>
+                                <option value="12">12개월 약정</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="calc_sibling">형제 동시 가입 여부</label>
+                            <select id="calc_sibling" onchange="calculateCost()">
+                                <option value="no">단독 1인 가입</option>
+                                <option value="yes">2인 이상 형제 할인 결합</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="calc_card">제휴 카드 할인 적용</label>
+                            <select id="calc_card" onchange="calculateCost()">
+                                <option value="no">미적용 (일반 결제)</option>
+                                <option value="yes">전용 제휴사 신용카드 할인 적용</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="calculator-result">
+                        <span id="calc-text">선택 옵션에 따른 계산 대기 중...</span>
+                    </div>
+                </form>
+            </div>
+            <p>위 계산기의 도출 수치는 주요 인강 브랜드의 고시 요금을 기조로 하여 보편적인 할인 요율을 대입해 환산한 시뮬레이션 결과입니다. 상세한 신규 추가 가입 지원금 및 유동적인 사은품 혜택 등을 결합한 정밀한 견적 요금은 본 페이지 하단의 무료 맞춤 상담 양식을 통하여 전문가에게 상세하게 실시간 피드백을 전달받으실 수 있습니다.</p>
+        </section>
+
+        <!-- Brand Diagnostic Quiz Widget (Dwell-time Booster) -->
+        <section id="quiz-section">
+            <h2>자녀 성향별 스마트학습 매칭 자가진단</h2>
+            <p>아이의 평소 공부 습관과 성향을 고려해 가장 높은 시너지를 유도할 수 있는 최적의 추천 브랜드를 찾아보세요. 아래 항목을 정확하게 체크하실수록 더욱 어울리는 매칭 결과를 확인하실 수 있습니다.</p>
+
+            <div class="interactive-box">
+                <form id="quiz-form" onsubmit="return false;">
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>1. 아이가 혼자 공부할 때 가장 좋아하는 학습 매체는 무엇인가요?</label>
+                        <div style="margin-top: 0.5rem;">
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q1" value="A" checked> 그림, 시각자료, 캐릭터 등 흥미 위주의 시각 요소가 많은 것
+                            </label>
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q1" value="B"> 차분한 선생님의 칠판 판서 설명이나 논리적인 이론 정리 중심의 영상
+                            </label>
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q1" value="C"> 책을 읽거나 스스로 모르는 개념을 퀴즈로 풀며 알아가는 능동적 방식
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="form-group" style="margin-bottom: 1.5rem;">
+                        <label>2. 학부모님이 생각하시는 가장 중요한 학업 목표는 무엇인가요?</label>
+                        <div style="margin-top: 0.5rem;">
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q2" value="A" checked> 학교 수업 내용 진도를 무리 없이 따라가고 공부 흥미를 지켜주는 것
+                            </label>
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q2" value="B"> 경시대회나 영재원, 특목중 혹은 중학교 상위권 대비를 위한 하드 트레이닝
+                            </label>
+                            <label style="font-weight: normal; margin-bottom: 0.3rem; display: block;">
+                                <input type="radio" name="q2" value="C"> 일일 스스로 학습 분량을 엄수하는 올바른 메타인지 주도형 습관의 정착
+                            </label>
+                        </div>
+                    </div>
+
+                    <button type="button" class="btn-submit" onclick="runDiagnostic()" style="background-color: var(--secondary-color);">진단 결과 즉시 확인하기</button>
+                    
+                    <div id="quiz-result" class="calculator-result" style="display: none; margin-top: 1.5rem;"></div>
+                </form>
+            </div>
+        </section>
+
+        <!-- Regional Education Trends Section -->
+        <section id="regional-section">
+            <h2>전국 지역별 사교육 분위기와 스마트학습 전략</h2>
+            <p>우리나라의 사교육 과열 양상과 방향성은 지역적 여건에 의해 크게 좌우되는 경향이 농후합니다. 예컨대 서울 강남구 대치동이나 양천구 목동, 노원구 중계동 및 경기 성남시 분당구, 일산 학원 밀집 구역 등은 일찍이 고도의 오프라인 대면 학원 중심의 학업 방식이 오랜 세월 뿌리를 깊게 내렸습니다. 그러나 2026년에 도달해서는 이러한 교육 특구 지역에서도 오프라인 학원의 보완재 및 자기공부 시간 효율성 증대를 목표로 프리미엄형 하이엔드 인강 강좌인 엘리하이 등을 이중으로 병행 등록하는 비중이 매우 가파르게 증가하는 중입니다.</p>
+            <p>또한 오프라인 밀집 인프라가 상대적으로 취약한 경기 외곽 신도시 지역이나 부산 해운대, 인천 송도, 대구 수성구, 대전 둔산동, 광주 봉선동, 울산 남구, 세종 신도심 등을 아우르는 전국 거점 권역에서도 지리적 한계를 영리하게 극복하는 강력한 수단으로 전용 스마트 태블릿 기반의 학습지가 탄탄히 자리매김했습니다. 왕복 통학 거리에 따른 체력적 고충과 차량 안전사고 리스크를 사전에 소거하며, 실시간 줌 원격 화상 통화 클래스 기능을 접목해 전국 유수의 전문 담임 교사 지도를 집 안에서 다이렉트로 온전히 누릴 수 있다는 장점이 학부모님들의 안심 심리를 성공적으로 공략해 냈습니다.</p>
+            <p>따라서 거주하고 계시는 행정구역 내 학급 수준 및 교우 환경, 인근 학원가 여건에 맞춰서 온라인 솔루션을 주도적으로 영위할 것인지, 아니면 보완적인 하이브리드 교재로 결합할 것인지 체계적인 컨설팅을 진행하여 설계하는 유연함이 필수적으로 요구됩니다.</p>
+        </section>
+
+        <!-- Deep Analytics: Grade Strategies & Parents Community Reactions -->
+        <section id="deep-analytics">
+            <h2>자녀 성장에 따른 타깃형 스마트 러닝 활용 비법</h2>
+            
+            <h3>1. 저학년 학습 습관 빌드업 가이드 (1학년, 2학년, 3학년)</h3>
+            <p>초등학교에 갓 입학한 초기 단계 아이들에게는 억지로 밀도 높은 진도를 나가게 종용하는 학습 모델은 절대 금물입니다. 공부에 대한 강력한 거부 반응만 불러일으켜 향후 고학년 진학 후 학습 포기자로 조기에 이탈하는 치명적인 역효과를 초래할 뿐입니다. 이 시기에는 아기자기한 동화적 캐릭터 스토리텔링, 게이미피케이션 방식의 흥미 유발 콘텐츠, 그리고 매일 고정 시간에 화면을 켜고 자리에 잠시 앉는 연습 자체를 이끄는 천재교육 밀크티나 아이스크림 홈런 등이 아주 훌륭한 길잡이 역할을 수행합니다.</p>
+            
+            <h3>2. 고학년 최상위권 실력 완성 가이드 (4학년, 5학년, 6학년)</h3>
+            <p>사춘기에 슬슬 접어들며 수학적 추상 관념이 처음 등장하는 초등 고학년 구간은 중등 내신과의 징검다리를 정교하게 구축해야 하는 대단히 중요한 골든타임입니다. 이 국면에서는 단순히 예쁜 애니메이션 자극에 재미를 느끼는 수준에 결코 머물러서는 안 되며, 수학의 기초 미적분 전 단계나 고급 영문법, 수행평가 논술 작성법 등에서 체계적인 강의력과 일대일 세분화된 진도 코칭을 자랑하는 메가스터디 엘리하이 같은 강의 연계형으로 빠르게 전환을 모색하는 전략이 대단히 유리합니다.</p>
+
+            <h3>3. 주요 맘카페 및 온라인 커뮤니티 솔직 동향 요약</h3>
+            <p>네이버 지식인 및 맘스홀릭 등 대형 학부모 커뮤니티뿐 아니라 비교적 표현이 가감 없고 사실적인 디시인사이드 학부모 갤러리, 보배드림 자녀교육 게시판, 펨코 및 에펨코리아의 입시 카테고리 등을 아우르는 여러 소통 광장의 실제 부모님들 이야기를 들어보면, 칭찬 일색의 공식 홈페이지 가이드 뒤에 감춰진 여러 어두운 단점과 한계점 또한 명확히 파악할 수 있습니다.</p>
+            <p>가장 흔히 언급되는 불만 사항은 바로 아이가 기기를 통해 전용 공부 앱을 구동하는 척하면서 실상은 유튜브 동영상을 백그라운드로 실행해 보거나 웹툰 시청 등 딴짓을 일삼는 제어가 안 되는 돌발 상황입니다. 또한 배정된 담당 관리 교사와의 궁합이 맞지 않아 매주 약속된 피드백 전화 통화 시간마다 아이가 심각한 피로감과 스트레스를 호소하는 케이스도 자주 보입니다. 따라서 가입 절차를 진행하기 이전에 기기 내 유해 프로그램 완벽 차단 잠금 제어 시스템의 견고함 유무를 꼼꼼히 체크하고, 가급적 약정 체결 전 일주일 무료 패드 체험 기간을 확실히 거쳐 아이가 이를 진심으로 흥미 있어 하고 지속할 의지를 정직하게 보여줄 때 최종 승인을 가하는 부모님만의 영리한 가드레일 작동이 필수적입니다.</p>
+        </section>
+
+        <!-- Detailed Consultation Request Form -->
+        <section id="consulting-section" class="contact-form">
+            <h3>초등학생인강 1:1 맞춤형 혜택 비교 및 무료 컨설팅</h3>
+            <p>자녀의 현재 성적 분포와 발달 패턴에 적합한 대표 브랜드를 하나하나 추려 드립니다. 또한 현재 실행 중인 공식 영업점 통합 할인권, 사은품 이벤트 내역, 모바일 백화점 상품권 지급 액수 및 특별 추가 현금지원 정보까지 한 번에 신속하게 취합하여 비교 견적 메일로 친절히 전송해 드리겠습니다.</p>
+            
+            <form action="#" method="post" onsubmit="alert('정보 수집에 동의해 주셔서 감사합니다. 기입하신 이메일 및 전화번호를 통해 맞춤 비교안을 신속히 발송해 드리겠습니다.'); return false;">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="child_name">자녀 이름</label>
+                        <input type="text" id="child_name" name="child_name" placeholder="자녀 이름 입력" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="child_grade">자녀 학년 구분</label>
+                        <select id="child_grade" name="child_grade" required>
+                            <option value="">학년을 선택하세요</option>
+                            <option value="초등1">초등 1학년</option>
+                            <option value="초등2">초등 2학년</option>
+                            <option value="초등3">초등 3학년</option>
+                            <option value="초등4">초등 4학년</option>
+                            <option value="초등5">초등 5학년</option>
+                            <option value="초등6">초등 6학년</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="preferred_brand">가장 관심 있는 브랜드</label>
+                        <select id="preferred_brand" name="preferred_brand" required>
+                            <option value="">브랜드를 선택하세요</option>
+                            <option value="밀크티">천재교육 밀크T</option>
+                            <option value="엘리하이">메가스터디 엘리하이</option>
+                            <option value="홈런">아이스크림 홈런</option>
+                            <option value="온리원">웅진 온리원</option>
+                            <option value="미정">아직 정하지 못함 (추천 요망)</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="parent_phone">학부모님 연락처</label>
+                        <input type="text" id="parent_phone" name="parent_phone" placeholder="010-XXXX-XXXX" required>
+                    </div>
+                </div>
+
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label for="user_region">거주하고 계신 주요 지역</label>
+                        <select id="user_region" name="user_region" required>
+                            <option value="">거주 지역 선택</option>
+                            <option value="서울">서울특별시</option>
+                            <option value="경기">경기도</option>
+                            <option value="인천">인천광역시</option>
+                            <option value="부산">부산광역시</option>
+                            <option value="대구">대구광역시</option>
+                            <option value="대전">대전광역시</option>
+                            <option value="광주">광주광역시</option>
+                            <option value="울산">울산광역시</option>
+                            <option value="세종">세종특별자치시</option>
+                            <option value="기타">기타 도 지역</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="consult_focus">우선시하시는 가입 상담 영역</label>
+                        <select id="consult_focus" name="consult_focus" required>
+                            <option value="">가장 중요하게 보시는 항목</option>
+                            <option value="비용">월 가입 요금 최소화 (가장 싼곳)</option>
+                            <option value="혜택">신규 가입 사은품 및 현금지원 극대화</option>
+                            <option value="성적">심화 학습 및 학교 내신 성적 올리기</option>
+                            <option value="태도">자기주도형 매일 공부 습관 정착</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="form-group" style="margin-bottom: 1.5rem;">
+                    <label for="custom_message">추가적인 상세 질문사항 및 자녀 성향 기재</label>
+                    <textarea id="custom_message" name="custom_message" rows="4" placeholder="예: 평소 유튜브 시청이 많고 연산 수학을 대단히 귀찮아하는 활동적인 초3 남아입니다. 어떤 브랜드 기기와 특약 가입이 장기간 유지하기에 제일 원만할까요?"></textarea>
+                </div>
+
+                <button type="submit" class="btn-submit">종합 비교견적 및 프로모션 안내장 신청하기</button>
+                <p style="font-size: 0.8rem; color: #777; margin-top: 0.8rem; text-align: center;">기재하신 연락처 정보는 실시간 스마트 학습 요금 분석과 혜택 비교 메일링 업무에만 안전하게 사용되며 완료 즉시 폐기됩니다.</p>
+            </form>
+        </section>
+
+        <!-- FAQ Section -->
+        <section id="faq-section">
+            <h2>자주 질문하시는 대표적 우려사항 요약 (FAQ)</h2>
+            <dl class="accordion">
+                <dt tabindex="0" aria-expanded="false">Q1: 스마트 러닝 전용 패드가 일반 아이패드나 갤럭시탭과 다른 차이점이 존재하나요?</dt>
+                <dd>A: 예, 대단히 뚜렷한 설계 차이가 존재합니다. 학습 전용 패드는 제조 공정 단계에서 별도로 개조된 잠금 탑재 소프트웨어 솔루션이 깊숙이 내장되어 있습니다. 따라서 가입 약정을 맺은 공부 프로그램 어플 및 지정된 인강 웹사이트 외에 유튜브 독립 앱 실행이나 모바일 게임 다운로드, 불건전 웹 브라우징이 기술적으로 완전히 통제됩니다. 이러한 부분은 학부모님 전용 어플을 통해 완벽히 제어되므로 유해 미디어 노출 측면에서 대단히 안전합니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q2: 약정 기간 도중 부득이하게 중도 해지할 시 위약금 반환 공식이 어떻게 되나요?</dt>
+                <dd>A: 중도 해지 시에는 가입 시점 당시에 할인 적용 받았던 월 수강료 할인 누적분과, 전용 기기 대금 완납을 위해 매달 분할 납부되던 태블릿 단말기 잔여 대금이 한꺼번에 청구되는 방식입니다. 특히 가입 첫해 중도 해지할 시 일종의 할인 반환금 비율과 기기 할부 원금이 예상보다 대단히 높게 청구되어 재정적 고충을 겪을 수 있으니, 계약서 조항 내 중도 해약금 환산식을 가입 전에 반드시 고객센터 수석 플래너를 통해 정확하게 확인하시기를 바랍니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q3: 여러 명의 형제자매가 기기 한 대를 번갈아 공유하면서 학습하는 형태도 가능한가요?</dt>
+                <dd>A: 기술적으로는 하나의 스마트 기기에 멀티 프로필 계정 생성이 가능하도록 일부 지원하는 홈쇼핑 연계 사은 특약 형태도 존재합니다. 그러나 대다수의 정통 전문 교육 플랫폼들은 자녀당 1대 1 맞춤형 담임 매칭 관리 교사가 전담 배치되어 개별 커리큘럼 계획을 설계하는 특성을 지닙니다. 따라서 원칙적으로는 자녀당 개별 독립 가입을 가장 모범적인 진도로 장려하며, 만약 동시 가입을 진행하실 때는 큰 폭의 다자녀 결합 할인 혜택을 제공받는 방향이 훨씬 합리적입니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q4: 인강 학습만으로 상위권 학생들의 학업 공백을 완벽하게 해소할 수 있을까요?</dt>
+                <dd>A: 기초 및 기본 개념의 전반적인 정독과 원리 파악 단계에서는 시각 그래픽 효과가 가득한 스마트 기기식 강의가 더할 나위 없이 우수한 역량을 제공합니다. 그러나 일정 수준 성적이 상위권 궤도에 견고히 도달했다면, 가벼운 객관식 풀이에 만족해서는 안 되며 깊이감 넘치는 지필형 종이 모의고사 풀이 및 서술형 문장 작성 연습을 무조건 병행해 주어야 장기적인 수능 최상위권 실력을 유지할 수 있습니다.</dd>
+
+                <dt tabindex="0" aria-expanded="false">Q5: 가입 유치 시 주어지는 현금지원 혜택이나 백화점 기프티콘은 정당한 혜택인가요?</dt>
+                <dd>A: 네, 그렇습니다. 본사 및 직영 가입 대리점에서 고객을 자율 경쟁 체제로 확보하기 위하여 광고 마케팅 버젯의 일정 부분을 신규 회원 가입을 해주신 부모님께 환원하는 합법적인 페이백 마케팅 범주에 해당합니다. 다만 간혹 지나치게 비상식적인 오버페이를 제안하며 유선 상담으로 카드를 즉시 긁도록 갈취 조장하는 소수 부실 대행사는 먹튀 피해 위험성이 내포되어 있으니 반드시 규모가 입증된 안전한 전문 공인 사이트를 경유해 진행하시는 것이 현명합니다.</dd>
+            </dl>
+        </section>
     </main>
-  </body>
-</html>
+
+
+    <script>
+      // Cost Calculator Engine
+      function calculateCost() {
+        const grade = document.getElementById('calc_grade').value;
+        const period = document.getElementById('calc_period').value;
+        const sibling = document.getElementById('calc_sibling').value;
+        const card = document.getElementById('calc_card').value;
+        
+        let baseMonthly = 119000;
+        
+        if (grade === 'high') {
+          baseMonthly += 10000; // 고학년 프리미엄 강의 추가료
+        }
+        
+        if (period === '12') {
+          baseMonthly += 30000; // 단기 약정 기기 일시상환 할증료
+        }
+        
+        let discount = 0;
+        if (sibling === 'yes') {
+          discount += baseMonthly * 0.15; // 형제결합 15% 감면
+        }
+        if (card === 'yes') {
+          discount += 15000; // 제휴카드 청구할인 고정액 차감
+        }
+        
+        const finalMonthly = Math.max(70000, baseMonthly - discount);
+        const totalAmount = finalMonthly * parseInt(period);
+        
+        document.getElementById('calc-text').innerHTML = 
+          "예상 월 납입요금: 월 " + finalMonthly.toLocaleString() + "원 / " + 
+          period + "개월 총합 금액: 약 " + totalAmount.toLocaleString() + "원 (단말기 비용 포함 예상치)";
+      }
+
+      // Brand Diagnostic Engine
+      function runDiagnostic() {
+        const q1 = document.querySelector('input[name="q1"]:checked').value;
+        const q2 = document.querySelector('input[name="q2"]:checked').value;
+        
+        let resultTitle = "";
+        let resultDesc = "";
+        
+        if (q1 === 'A' && q2 === 'A') {
+          resultTitle = "천재교육 밀크T 또는 아이스크림 홈런을 권해드립니다.";
+          resultDesc = "아이가 게임적 자극과 애니메이션 시각 교구에 큰 친근감을 느끼며, 학교 안 진도를 차근차근 밝은 정서 속에서 배우는 습관 정착에 가장 이상적인 성향을 지녔습니다.";
+        } else if (q1 === 'B' || q2 === 'B') {
+          resultTitle = "메가스터디 엘리하이를 강력하게 권장합니다.";
+          resultDesc = "높은 퀄리티의 온라인 판서 강의 소화력이 풍부하며, 중학교 내신 선행 및 상위권 도약을 위한 깊이 있는 진도 완성에 가장 확실한 도구가 되어 줍니다.";
+        } else {
+          resultTitle = "웅진 온리원을 제안 드립니다.";
+          resultDesc = "일방적 시청보다 자신의 공부 상태를 조율하는 메타인지 훈련에 잘 특화되어 스스로 오늘의 학업 플랜을 통제하는 자율 능동 습관 형성에 큰 부합을 보입니다.";
+        }
+        
+        const resultDiv = document.getElementById('quiz-result');
+        resultDiv.style.display = "block";
+        resultDiv.innerHTML = "<strong>자가진단 추천 매칭 결과:</strong> " + resultTitle + "<br><span style='font-weight: normal; font-size: 0.95rem; color: #555;'>" + resultDesc + "</span>";
+      }
+
+      // FAQ Accordion functionality
+      document.querySelectorAll('dl.accordion dt').forEach((dt) => {
+        dt.addEventListener('click', () => {
+          dt.classList.toggle('active');
+          let expanded = dt.getAttribute('aria-expanded') === 'true';
+          dt.setAttribute('aria-expanded', !expanded);
+        });
+        dt.addEventListener('keydown', (e) => {
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            dt.click();
+          }
+        });
+      });
+
+      // Initial cost calculate run
+      calculateCost();
+    </script>
+  
